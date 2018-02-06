@@ -92,7 +92,7 @@ removeIngredientHandler= (type) => {
         for(let key in disabledInfo){
             disabledInfo[key] = disabledInfo[key] <= 0 
         }
-        console.log(this.state.ingredients);
+       // console.log(this.state.ingredients);
         return (
             <Aux>
                 <Model 
