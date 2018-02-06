@@ -46,6 +46,10 @@ purchaseCancelHandler= () =>{
     this.setState({purchasing: false});
 }
 
+purchaseContinueHandler=() =>{
+    alert("you Continue");
+}
+
 addIngredientHandler= (type) => {
     const oldCount = this.state.ingredients[type];
     const updatedCount = oldCount + 1;
@@ -94,7 +98,11 @@ removeIngredientHandler= (type) => {
                 <Model 
                     show={this.state.purchasing}
                     modelClosed={this.purchaseCancelHandler}>
-                    <OrderSummary ingredients={this.state.ingredients}> </OrderSummary>
+                    <OrderSummary 
+                        ingredients={this.state.ingredients}
+                        price={this.state.totalPrice}
+                        purchaseCancelled={this.purchaseCancelHandler}
+                        purchaseContinued={this.purchaseContinueHandler}> </OrderSummary>
                 </Model>
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls 
