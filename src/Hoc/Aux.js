@@ -4,4 +4,4 @@ export default aux;
 
 
 //HOC -> higher order component
-//aux :-> Auxillary component
+//Aux :-> Auxillary component

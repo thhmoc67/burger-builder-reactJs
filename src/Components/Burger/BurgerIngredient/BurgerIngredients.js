@@ -34,7 +34,7 @@ class BurgerIngredient extends Component{
                 break;
             default: 
                 ingredient=null;
-                console.log("Null");
+                //console.log("Null");
 
         }
         return ingredient;
