@@ -59,26 +59,18 @@ purchaseCancelHandler= () =>{
 
 purchaseContinueHandler=() =>{
     //alert("You Continue");
-    this.setState({loading : true});
-//placing an order
-    const order={
-        ingredients: this.state.ingredients,
-        price: this.state.totalPrice.toFixed(2),
-        customer:{
-            name:'De saini',
-            address:{
-                street : 'ramnasgar',
-                zip: '302033',
-                email: 'dayalsaini67@gmail.com'
-            }
-        },
-        deliveryMethod: 'Fastest'
-    }
-    axios.post('/orders.json',order)//to post the data to server
-        .then(response=>{
-            this.setState({ loading: false , purchasing : false });
-        })
-        .catch(error=> this.setState({ loading : false , purchasing : false  }));
+    
+        const queryParams= [];
+        for (let i in this.state.ingredients){
+            queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
+        }
+        //insert price in ingredients 
+        queryParams.push('price=' + this.state.totalPrice );
+        const queryString = queryParams.join('&');
+        this.props.history.push({
+            pathname: '/checkout',
+            search: '?' + queryString
+        });
 }
 
 addIngredientHandler= (type) => {
