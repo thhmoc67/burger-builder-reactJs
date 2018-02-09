@@ -3,7 +3,7 @@ import React from 'react';
 import classes from './Order.css';
 const order = (props) => {
     const ingredients= [];
-//
+
     for( let ingredientName in props.ingredients){
         ingredients.push(
             {
@@ -26,9 +26,10 @@ const order = (props) => {
     });
 return (
     <div className = {classes.Order}>
-        <p>{props.customer.name} </p>
+        
         <p>Ingredients: {ingredientOutput}</p>
         <p>price : <strong> USD {props.price} </strong></p>
+        {props.key}
         
     </div>
 )
